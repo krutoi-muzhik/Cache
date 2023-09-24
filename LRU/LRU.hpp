@@ -7,16 +7,16 @@
 #include <unordered_map>
 #include <iostream>
 
-typedef int page_t;
 
+template <typename page_t>
 class LRU {
 private:
 	size_t sz_;
 	std::list<page_t> L;
-	using ListIt = std::list<page_t>::iterator;
+	using ListIt = typename std::list<page_t>::iterator;
 	ListIt It;
 	std::unordered_map<page_t, ListIt> M;
-	using MapIt = std::unordered_map<page_t, ListIt>::iterator;
+	using MapIt = typename std::unordered_map<page_t, ListIt>::iterator;
 
 public:
 	LRU(size_t sz): sz_(sz) {}

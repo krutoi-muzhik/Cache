@@ -1,7 +1,7 @@
 #include "LRU.hpp"
 
 int main() {
-	LRU c(4);
+	LRU<int> c(4);
 
 	c.refer(1);
 	c.refer(2);
