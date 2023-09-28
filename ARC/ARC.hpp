@@ -1,22 +1,31 @@
-#ifndef CACHE_H
+#ifndef ARC_H_
 
-#define CACHE_H
+#define ARC_H_
 
-typedef page_t int;
+#define MIN(x, y):	(x > y) ? y : x
 
-page_t getpage();
+#define MAX(x, y):	(x > y) ? x : y
 
-
-template <typename T, typename KeyT = int>
-class cache_t {
+template <typename page_t>
+class ARC {
+private:
 	size_t sz_;
+	size_t p;
+	LRU T1, T2, B1, B2;
 
-	cache_t(size_t sz, size_t sz2): sz_(sz) {}
+
+	ARC(size_t sz): sz_(sz), T1(sz), T2(sz), B1(sz), B2(sz) {}
 	
+	~ARC() {}
+
+	refer(page_t)
 
 };
 
 
 
 
-#endif				// CACHE_H
+#undef MIN
+#undef MAX
+
+#endif				// ARC_H_
